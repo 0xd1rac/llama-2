@@ -1,5 +1,5 @@
-from common_imports import *
-from ModelArgs import ModelArgs
+from .common_imports import *
+from .ModelArgs import ModelArgs
 
 class FeedForward(nn.Module):
     def __init__(self,

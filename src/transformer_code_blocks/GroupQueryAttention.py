@@ -1,6 +1,6 @@
-from common_imports import *
-from ModelArgs import ModelArgs
-from RotaryPositionEmbedding import RotaryPositionEmbedding
+from .common_imports import *
+from .ModelArgs import ModelArgs
+from .RotaryPositionEmbedding import RotaryPositionEmbedding
 
 
 class GroupQueryAttention(nn.Module):
@@ -34,7 +34,7 @@ class GroupQueryAttention(nn.Module):
                             bias=False
                             )
         
-        self.W_V = nn.Linear(self.d_mode,
+        self.W_V = nn.Linear(self.d_model,
                             self.num_KV_heads * self.Q_head_size,
                             bias=False
                             )

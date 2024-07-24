@@ -1,7 +1,6 @@
-from ModelArgs import ModelArgs
-from RMSNorm import RMSNorm
-from EncoderBlock import EncoderBlock
-from common_imports import *
+from src.transformer_code_blocks import ModelArgs, RMSNorm, EncoderBlock
+import torch
+import torch.nn as nn
 
 class Transformer(nn.Module):
 

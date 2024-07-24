@@ -1,15 +1,16 @@
-from common_imports import *
+from .common_imports import *
 
-from ModelArgs import ModelArgs
-from RMSNorm import RMSNorm
-from src.GroupQueryAttention import GroupQueryAttention
-from FeedForward import FeedForward
+from .ModelArgs import ModelArgs
+from .RMSNorm import RMSNorm
+from .GroupQueryAttention import GroupQueryAttention
+from .FeedForward import FeedForward
 
 class EncoderBlock(nn.Module):
     def __init__(self, 
                  args: ModelArgs
                  ):
         super().__init__()
+        print(args)
         self.num_Q_heads = args.num_Q_heads
         self.d_model = args.d_model
         self.Q_head_size = args.d_model // args.num_Q_heads
@@ -30,7 +31,7 @@ class EncoderBlock(nn.Module):
                 ) -> torch.Tensor:
         
         h = x + self.attention.forward(self.attention_norm(x),
-                                       start_pos,
+                                       start_pos
                                        )
     
         out = h + self.feed_forward.forward(self.ffn_norm(h))

@@ -1,4 +1,4 @@
-from common_imports import *
+from .common_imports import *
 
 class RMSNorm(nn.Module):
     def __init__(self, 
