@@ -54,11 +54,11 @@ class LlamaBuilder:
         else:
             torch.set_default_tensor_type(torch.FloatTensor)
         
-        model_args.vocab_size = tokenizer.vocab_size
+        model_args.vocab_size = tokenizer.vocab_size()
         model = Transformer(model_args).to(device)
 
         if load_model:
-            model.load_state_dict(checkpoint, strict=True)
+            model.load_state_dict(checkpoint, strict=False)
             print(f"Loaded model in {time.time() - prev_time}s")
             
         return Llama(model, tokenizer, model_args)

@@ -25,32 +25,32 @@ class GroupQueryAttention(nn.Module):
         before computing the attention.
         """
 
-        self.W_Q = nn.Linear(self.d_model,
+        self.W_Q = nn.Linear(args.d_model,
                             self.num_Q_heads * self.Q_head_size,
                             bias=False
                             )
-        self.W_K = nn.Linear(self.d_model,
+        self.W_K = nn.Linear(args.d_model,
                             self.num_KV_heads * self.Q_head_size,
                             bias=False
                             )
         
-        self.W_V = nn.Linear(self.d_model,
+        self.W_V = nn.Linear(args.d_model,
                             self.num_KV_heads * self.Q_head_size,
                             bias=False
                             )
         
         self.WO = nn.Linear(self.num_Q_heads * self.Q_head_size,
-                            self.d_model,
+                            args.d_model,
                             bias=False
                             )
         
-        self.cache_k = torch.zeroes((
+        self.cache_k = torch.zeros((
                             args.max_batch_size,
                             args.max_seq_len,
                             self.num_KV_heads,
                             self.Q_head_size
                             ))
-        self.cache_v = torch.zeroes((
+        self.cache_v = torch.zeros((
                             args.max_batch_size,
                             args.max_seq_len,
                             self.num_KV_heads,

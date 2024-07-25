@@ -10,7 +10,6 @@ class EncoderBlock(nn.Module):
                  args: ModelArgs
                  ):
         super().__init__()
-        print(args)
         self.num_Q_heads = args.num_Q_heads
         self.d_model = args.d_model
         self.Q_head_size = args.d_model // args.num_Q_heads

@@ -14,6 +14,9 @@ class Transformer(nn.Module):
         self.args = args
         self.vocab_size = args.vocab_size
         self.num_encoder_blocks = args.num_encoder_blocks
+        print(f"vocab_size: {self.vocab_size}")
+        print(f"d_model: {args.d_model}")
+
         self.tok_embeddings = nn.Embedding(self.vocab_size, args.d_model)
 
         self.encoder_blocks = nn.ModuleList()

@@ -17,7 +17,7 @@ class RotaryPositionEmbedding(nn.Module):
 
         # Convert frequency values to complex numbers (polar form)
         self.freqs_complex = torch.polar(torch.ones_like(freqs), freqs)
-        self.register_buffer("freqs_complex", self.freqs_complex)
+        # self.register_buffer("freqs_complex", self.freqs_complex)
 
     def forward(self, x: torch.Tensor, start_pos: int) -> torch.Tensor:
         batch_size, seq_len, dim = x.shape

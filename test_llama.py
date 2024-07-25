@@ -13,6 +13,6 @@ lb.load_weights(weights_dir = WEIGHTS_DIR,
                  load_model= True,
                  max_seq_len=args.max_seq_len,
                  max_batch_size= args.max_batch_size,
-                 device=args.max_batch_size,
+                 device=args.device,
                  model_args=args
                 )

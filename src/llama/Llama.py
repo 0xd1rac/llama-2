@@ -11,6 +11,7 @@ class Llama(nn.Module):
                  tokenizer: SentencePieceProcessor,
                  args: ModelArgs
                 ) -> None:
+        super().__init__()
         self.model = model
         self.tokenizer = tokenizer
         self.args = args    
